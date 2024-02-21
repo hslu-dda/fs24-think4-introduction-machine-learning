@@ -4,7 +4,7 @@ let img;
 let prediction = '';
 
 function preload(){
-  img = loadImage('images/border_collie.jpg')
+  img = loadImage('images/old_english_sheepdog.jpg')
 }
 
 function setup() {
