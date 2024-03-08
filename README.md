@@ -21,6 +21,3 @@ Repository für die « Introduction to Machine Learning» im Modul think 4 mit M
 - ML5js [«Kmeans Clustering»](https://learn.ml5js.org/#/reference/kmeans)
 - Coding Train Playlist [«Beginners Guide to Machine Learning in JavaScript»](https://www.youtube.com/playlist?list=PLRqwX-V7Uu6YPSwT06y_AEYTqIwbeam3y)
 - Coding Train Tutorial [«Introduction to Neural Networks»](https://www.youtube.com/watch?v=XJ7HLz9VYz0&list=PLRqwX-V7Uu6aCibgK1PTWWu9by6XFdCfh)
-- [https://ml5js.org/](https://ml5js.org/)
-- [https://ml4a.net/](https://ml4a.net/)
-- [Teachable Machine by Google](https://teachablemachine.withgoogle.com/)
