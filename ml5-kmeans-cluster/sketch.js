@@ -48,6 +48,7 @@ function createClusters() {
 
 // callback function when the clustering is done
 function drawClusters() {
+  console.log("clustering done! let's redraw the ellipses")
   clear();
   background(0);
 
