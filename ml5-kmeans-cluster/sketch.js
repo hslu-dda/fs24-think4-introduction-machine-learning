@@ -31,38 +31,46 @@ function setup() {
 
   //A button is added to start clustering the data
   let calculateButton = createButton("Cluster");
-  calculateButton.mouseClicked(cluster);
+  calculateButton.mouseClicked(createClusters);
 }
 
 // the function that clusters our data
-function cluster() {
+function createClusters() {
   // the kmeans clustering options
   const options = {
     k: 3, // how many clusters we want
     maxIter: 500,
     threshold: 0.9,
   };
-  kmeans = ml5.kmeans(data, options, clustersCalculated);
+  // machine learning magic!
+  kmeans = ml5.kmeans(data, options, drawClusters);
 }
 
-function clustersCalculated() {
-  // when we are done clustering, we set this to true to trigger a redraw
-  calculated = true;
-}
-//When the clustering is done, we recolor the data-points based on their centroid
-function draw() {
-  if (calculated) {
-    for (i = 0; i < kmeans.dataset.length; i++) {
-      let centroid = kmeans.dataset[i].centroid;
-      let datapointx = kmeans.dataset[i][0];
-      let datapointy = kmeans.dataset[i][1];
-      //We are using the HSB colorMode here
-      fill(centroid * 36, 100, 100);
-      ellipse(datapointx, datapointy, 20, 20);
-      //We also add a label to the output, so it could be interpreted without the color
-      fill(0);
-      textAlign(CENTER, CENTER);
-      text(centroid + 1, datapointx, datapointy);
-    }
+// callback function when the clustering is done
+function drawClusters() {
+  clear();
+  background(0);
+
+  // we redraw the clusters with colors and their cluster label
+  for (i = 0; i < kmeans.dataset.length; i++) {
+
+    // the centroid is the cluster that the point belongs to, e.g. 1, 2, or 3
+    let centroid = kmeans.dataset[i].centroid;
+
+    // get the original coordinates
+    let datapointx = kmeans.dataset[i][0];
+    let datapointy = kmeans.dataset[i][1];
+
+    //We are using the HSB colorMode here
+    fill(centroid * 36, 100, 100);
+
+    // redraw the ellipse
+    ellipse(datapointx, datapointy, 20, 20);
+
+    //We also add a label to the output, so it could be interpreted without the color
+    fill(0);
+    textAlign(CENTER, CENTER);
+    text(centroid + 1, datapointx, datapointy);
   }
 }
+
